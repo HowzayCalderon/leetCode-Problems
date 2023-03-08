@@ -44,6 +44,7 @@ Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.
 
 
 function rToi(rom){
+    // symbols object serves as a reference as to how much to add to the final answer
     const symbols = {
         'I': 1,
         'V': 5,
@@ -53,9 +54,13 @@ function rToi(rom){
         'D': 500,
         'M': 1000,
     }
+    // the array variable is storing the roman numeral split into an array
     const array = rom.split('')
+    // answer variable stores the final answer
     let answer = 0
+    // for loop iterating through each letter of the roman numeral array
     for(let i = 0; i < array.length; i++){
+        // conditional statements checking for 'IV', 'IX', 'XL', 'XC', 'CD', 'CM'
         if(array[i] == 'I' && array[i+1] == 'V'){
             answer += 4
             i++
@@ -81,6 +86,7 @@ function rToi(rom){
             i++
         }
         else {
+            // if the roman numeral matches a symbol in the symbols object it will add the value for that specific numeral
             answer += symbols[array[i]]
         }
     }
