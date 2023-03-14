@@ -29,8 +29,11 @@ Constraints:
 */
 
 function reversed(x){
+    /* x.toString() is changing the number to a string to allow the use of .split('') which will split the string into an array of strings. With the number split into an array .reverse() can be used to reverse the order of the array. .filter() is then used to remove '-' symbol in case of negative numbers and finally .join('') to turn the array back to a single number*/
     let num = x.toString().split('').reverse().filter(int => int !== '-').join('');
+    /* ternary checking if num is greater than 2**31 -1, if it is greater num will = 0, if not num remains the same*/
     num > 2**31 -1? num = 0: num = num;
+    /* ternary checking if original input was negative or positive*/
     x < 0? num = num * -1: num = num;
     return num;
 };
